@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #111;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .menu {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: #fff;
+            margin-bottom: 15px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .product {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+        }
+
+        .product img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            filter: brightness(1.2) contrast(1.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-info {
+            flex: 1;
+            padding-left: 15px;
+        }
+
+        .product-info h3 {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-info p {
+            font-size: 1em;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+
+        .product-info .counter {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-info .counter button {
+            background-color: #0078ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .product-info .counter button:hover {
+            background-color: #0056b3;
+        }
+
+        .product-info button {
+            background-color: var(--clr, #0078ff);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1em;
+            text-align: center;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        .product-info button:hover {
+            background-color: var(--clr, #0056b3);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="menu">
+    <div class="section">
+        <h2>Entradas</h2>
+        <div class="product">
+            <img src="https://via.placeholder.com/80" alt="Entrada 1">
+            <div class="product-info">
+                <h3>Entrada 1</h3>
+                <p>Descripción de la entrada 1</p>
+                <div class="counter">
+                    <button onclick="decrement('countEntrada1')">-</button>
+                    <span id="countEntrada1">0</span>
+                    <button onclick="increment('countEntrada1')">+</button>
+                </div>
+                <button onclick="addToCart('Entrada 1')" style="--clr: #ff357a;">Agregar</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/80" alt="Entrada 2">
+            <div class="product-info">
+                <h3>Entrada 2</h3>
+                <p>Descripción de la entrada 2</p>
+                <div class="counter">
+                    <button onclick="decrement('countEntrada2')">-</button>
+                    <span id="countEntrada2">0</span>
+                    <button onclick="increment('countEntrada2')">+</button>
+                </div>
+                <button onclick="addToCart('Entrada 2')" style="--clr: #fff172;">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Platos Principales</h2>
+        <div class="product">
+            <img src="https://via.placeholder.com/80" alt="Plato 1">
+            <div class="product-info">
+                <h3>Plato 1</h3>
+                <p>Descripción del plato 1</p>
+                <div class="counter">
+                    <button onclick="decrement('countPlato1')">-</button>
+                    <span id="countPlato1">0</span>
+                    <button onclick="increment('countPlato1')">+</button>
+                </div>
+                <button onclick="addToCart('Plato 1')" style="--clr: #0078ff;">Agregar</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://via.placeholder.com/80" alt="Plato 2">
+            <div class="product-info">
+                <h3>Plato 2</h3>
+                <p>Descripción del plato 2</p>
+                <div class="counter">
+                    <button onclick="decrement('countPlato2')">-</button>
+                    <span id="countPlato2">0</span>
+                    <button onclick="increment('countPlato2')">+</button>
+                </div>
+                <button onclick="addToCart('Plato 2')" style="--clr: #ff357a;">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agrega más secciones y productos según sea necesario -->
+
+</div>
+
+<script>
+    function increment(id) {
+        const count = document.getElementById(id);
+        count.textContent = parseInt(count.textContent) + 1;
+    }
+
+    function decrement(id) {
+        const count = document.getElementById(id);
+        if (parseInt(count.textContent) > 0) {
+            count.textContent = parseInt(count.textContent) - 1;
+        }
+    }
+
+    function addToCart(product) {
+        alert(`Has agregado ${document.getElementById(`count${product.split(' ')[0]}`).textContent} ${product} al carrito.`);
+    }
+</script>
+
+</body>
+</html>

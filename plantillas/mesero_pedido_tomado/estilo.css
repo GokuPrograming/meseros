@@ -1,0 +1,51 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.ticket {
+    max-width: 300px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.ticket-body {
+    padding: 20px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.order-item span {
+    display: block;
+    font-size: 14px;
+    color: #555;
+}
+
+.order-total {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .ticket {
+        max-width: 90%;
+    }
+}

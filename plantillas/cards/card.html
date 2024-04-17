@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Quicksand", sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #111;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .product:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .product img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product h3 {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            font-size: 1em;
+            color: #ccc;
+            text-align: center;
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+        .ring {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .ring i {
+            position: absolute;
+            inset: 0;
+            border: 2px solid #fff;
+            transition: 0.5s;
+        }
+
+        .ring i:nth-child(1) {
+            border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+            animation: animate 6s linear infinite;
+        }
+
+        .ring i:nth-child(2) {
+            border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+            animation: animate 4s linear infinite;
+        }
+
+        .ring i:nth-child(3) {
+            border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+            animation: animate2 10s linear infinite;
+        }
+
+        .ring:hover i {
+            border: 6px solid var(--clr);
+            filter: drop-shadow(0 0 20px var(--clr));
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes animate2 {
+            0% {
+                transform: rotate(360deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="product">
+        <div class="ring">
+            <i style="--clr: #ff357a;"></i>
+            <i style="--clr: #fff172;"></i>
+            <i style="--clr: #0078ff;"></i>
+        </div>
+        <img src="https://via.placeholder.com/250" alt="Producto 1">
+        <h3>Producto 1</h3>
+        <p>Descripción del producto 1</p>
+    </div>
+
+    <div class="product">
+        <div class="ring">
+            <i style="--clr: #ff357a;"></i>
+            <i style="--clr: #fff172;"></i>
+            <i style="--clr: #0078ff;"></i>
+        </div>
+        <img src="https://via.placeholder.com/250" alt="Producto 2">
+        <h3>Producto 2</h3>
+        <p>Descripción del producto 2</p>
+    </div>
+
+    <div class="product">
+        <div class="ring">
+            <i style="--clr: #ff357a;"></i>
+            <i style="--clr: #fff172;"></i>
+            <i style="--clr: #0078ff;"></i>
+        </div>
+        <img src="https://via.placeholder.com/250" alt="Producto 3">
+        <h3>Producto 3</h3>
+        <p>Descripción del producto 3</p>
+    </div>
+
+    <!-- Agrega más productos según sea necesario -->
+
+</div>
+
+</body>
+</html>

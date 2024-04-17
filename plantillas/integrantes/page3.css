@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+    /* color: #fff; */
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    line-height: 1.67;
+    padding: 60px 0;
+}
+
+a {
+    color: #3e64ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.section-team {
+    padding: 80px 0;
+}
+
+.section-team .header-section {
+    margin-bottom: 50px;
+}
+
+.section-team .header-section .small-title {
+    margin-bottom: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3e64ff;
+}
+
+.section-team .header-section .title {
+    font-weight: 700;
+    font-size: 45px;
+}
+
+.section-team .single-person {
+    margin-top: 30px;
+    padding: 30px;
+    background-color: #222;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.section-team .single-person:hover {
+    background: linear-gradient(to right, #016cec, #00b5f7);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.section-team .single-person .person-image {
+    position: relative;
+    margin-bottom: 50px;
+    border-radius: 50%;
+    border: 4px dashed transparent;
+    transition: padding .3s;
+}
+
+.section-team .single-person:hover .person-image {
+    padding: 12px;
+    border: 4px dashed #fff;
+}
+
+.section-team .single-person .person-image img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.section-team .single-person .person-image .icon {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: linear-gradient(to right, #016cec, #00b5f7);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+}
+
+.section-team .single-person:hover .person-image .icon {
+    background: none;
+    background-color: #fff;
+    color: #016cec;
+}
+
+.section-team .single-person .person-info .full-name {
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.section-team .single-person .person-info .speciality {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #3e64ff;
+}
+
+.section-team .single-person:hover .full-name,
+.section-team .single-person:hover .speciality {
+    color: #fff;
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 992px) {
+    .sm-no-flex {
+        display: block;
+    }
+    .sm-no-float {
+        float: none !important;
+    }
+    .sm-text-center {
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .team-members li {
+        text-align: center;
+    }
+    .team-members li > div {
+        float: none;
+        display: inline-block;
+        width: 30%;
+        margin: 0 !important;
+    }
+    .team-members {
+        transform: rotate(0);
+    }
+    .member-details img {
+        transform: rotate(0) translate(0, 0);
+    }
+    .team-overview {
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 399px) {
+    .team-members li > div {
+        width: 48%;
+    }
+}
+
+/* extra */
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.6rem;
+    background-color: #222;
+    padding: 20px 0;
+}
+
+.copyright a {
+    display: inline-block;
+    padding: 15px 2px;
+    color: #3e64ff;
+}
+
+.copyright a:not(:last-child):after {
+    content: "/";
+    margin-left: 10px;
+}

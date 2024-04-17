@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificación de la API</title>
+    <link rel="shortcut icon" href="#">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <section style="text-align: center; margin-top: 10%;">
+        <button style="padding: 7px;" id="notificar">
+            Notificar...
+        </button>
+        <button style="padding: 7px;" id="vernotificacion">
+            Ver Notificación
+        </button>
+    </section>
+</body>
+
+</html>
+<script>
+    const notificarBtn = document.querySelector('#notificar');
+    notificarBtn.addEventListener('click', () => {
+        Notification.requestPermission().then(resultado => {
+            console.log('Respuesta:', resultado);
+        })
+    })
+    const verNotificacion = document.querySelector('#vernotificacion');
+    verNotificacion.addEventListener('click', () => {
+        new Notification('Esta es la notificacion')
+    })
+
+
+  // Solicitar permiso para mostrar notificaciones-->
+  /*  Notification.requestPermission().then(resultado => {
+        console.log('Respuesta:', resultado);
+    });
+
+    // Mostrar la notificación automáticamente
+    new Notification('Esta es la notificación'); -->*/
+
+</script>
