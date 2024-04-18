@@ -4,6 +4,7 @@ require_once '../../model/mostrar/mostrar_productos_model.php';
 require_once '../../model/agregar/agregarPedido_model.php';
 require_once '../../model/eliminar/eliminarCanasta_model.php';
 require_once '../../model/actualizar/actualizar.php';
+require_once '../../model/enviarCorreo.php';
 $producto = new Producto();
 $agregar_a_pedido = new AgregarPedido();
 $elimar_de_canasta = new EliminarCanasta();
@@ -65,6 +66,16 @@ if (isset($_GET['opc'])) {
                 $id_p = $_GET['id_pedido'];
                 $id_p = intval($id_p);
                 echo "El valor de pedido feu tomado=" . $id_p;
+                // mostrar_datos_pedido
+                $informacion = $producto->mostrar_datos_pedido($id_p);
+                foreach ($informacion as $infoPedido) {
+                    $_SESSION['correo'] =  $infoPedido['usuario'];
+                }
+
+                $correo = new MailerService();
+                $ticket='Gracias por ser paciente, su pedido ha sido tomado, revisa la pagina web para que puedas ver el esatdo de tu pedido';
+                // Envía correo
+                $correo->sendMailTicket($_SESSION['correo'], $ticket);
                 $agregar_a_pedido->agregarPedidoAMesero($_SESSION["id_usuario"], $id_p);
                 //$agregar_a_pedido->agregarPedido($_SESSION["id_usuario"], $id_p, $contador);
             }
@@ -75,7 +86,6 @@ if (isset($_GET['opc'])) {
                     if ($_SESSION["id_rol"] == 2) {
                         $datosProducto_atendido = $producto->mostrar_pedido_atendido($_SESSION["id_usuario"]);
                         $datosProducto_atendido_usuario = $producto->mostrar_pedido_atendido_usuario($_SESSION["id_usuario"]);
-
                         echo '<div class="ticket">
                                 <div class="ticket-header">
                                     <h2>Orden</h2>
@@ -103,7 +113,7 @@ if (isset($_GET['opc'])) {
 
                             foreach ($datosProducto_atendido_usuario as $infoPedidoTomado) {
                                 if ($infoPedidoTomado['id_pedido'] == $id_pedido) {
-                                    
+
                                     echo '<select id="estadoPedido" onchange="actualizarEstado(' . $id_pedido . ')">';
 
                                     $opciones = $producto->mostrar_estado_select();
