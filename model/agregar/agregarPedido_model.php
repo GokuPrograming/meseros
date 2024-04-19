@@ -1,4 +1,6 @@
 <?php
+// require_once '../../model/enviarCorreo.php';
+require_once '../../model/enviarCorreo.php';
 class AgregarPedido
 {
     private $db;
@@ -84,7 +86,7 @@ class AgregarPedido
 
 
 
- 
+
     public function agregarPedidoAMesero($id_usuario, $id_pedido)
     {
         try {
@@ -115,10 +117,14 @@ class AgregarPedido
                 $stmt2 = $this->db->prepare($query2);
                 $stmt2->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
                 $stmt2->execute();
-              
+
                 // Confirmar la transacción
                 $this->db->commit();
-                echo "¡Se agregó a su carrito :D siga comprando!";
+                echo "¡Se agregó a tu lista de pedidos mesero A Trabajar!";
+                $correo = new MailerService();
+                $ticket = 'Gracias por ser paciente, su pedido con folio:' . $id_pedido . ' ha sido tomado, revisa la pagina web para que puedas ver el esatdo de tu pedido';
+                // Envía correo
+                $correo->sendMailTicket($_SESSION['correo'], $ticket);
             }
         } catch (PDOException $e) {
             // Si ocurre un error, deshacer la transacción

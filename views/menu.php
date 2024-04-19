@@ -12,6 +12,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 
     <!-- <link rel="stylesheet" href="nvar.css"> -->
@@ -83,6 +85,7 @@
             });
             // carritoContador();
         }
+
         function mostrar_Nvar() {
             $.ajax({
                 url: '../controller/user/nvarController.php?opc=1',
@@ -97,6 +100,7 @@
             });
             // carritoContador();
         }
+
         function mostrar_subNvar() {
             $.ajax({
                 url: '../controller/user/subNvar_controller.php?opc=1',
@@ -159,19 +163,35 @@
 
 
         function tomarOrden(id_pedido) {
+            // Mostrar SweetAlert de cargando
+            Swal.fire({
+                title: 'Cargando...',
+                allowOutsideClick: false,
+                onBeforeOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
             $.ajax({
                 url: `../controller/mesero/ctrlMesero.php?opc=2&id_pedido=${id_pedido}`,
                 type: 'GET',
                 success: function(response) {
+                    // Cerrar SweetAlert de cargando
+                    Swal.close();
+
                     $('#mostrar').html(response);
                     mostrarNotificacion('¡Gracias por tomar el pedido!', 'success');
                     mostrarParaMeseros();
+
                     // Espera 2 segundos antes de redireccionar
                     setTimeout(function() {
                         window.location.href = "./preparar_pedido.php";
                     }, 2000); // 2000 milisegundos = 2 segundos
                 },
                 error: function() {
+                    // Cerrar SweetAlert de cargando
+                    Swal.close();
+
                     // Maneja errores si la solicitud AJAX falla
                     $('#mostrar').html('Error al cargar la barra de navegación');
                 }

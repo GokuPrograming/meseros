@@ -4,7 +4,7 @@ require_once '../../model/mostrar/mostrar_productos_model.php';
 require_once '../../model/agregar/agregarPedido_model.php';
 require_once '../../model/eliminar/eliminarCanasta_model.php';
 require_once '../../model/actualizar/actualizar.php';
-require_once '../../model/enviarCorreo.php';
+// require_once '../../model/enviarCorreo.php';
 $producto = new Producto();
 $agregar_a_pedido = new AgregarPedido();
 $elimar_de_canasta = new EliminarCanasta();
@@ -72,11 +72,9 @@ if (isset($_GET['opc'])) {
                     $_SESSION['correo'] =  $infoPedido['usuario'];
                 }
 
-                $correo = new MailerService();
-                $ticket='Gracias por ser paciente, su pedido ha sido tomado, revisa la pagina web para que puedas ver el esatdo de tu pedido';
-                // Envía correo
-                $correo->sendMailTicket($_SESSION['correo'], $ticket);
+
                 $agregar_a_pedido->agregarPedidoAMesero($_SESSION["id_usuario"], $id_p);
+               
                 //$agregar_a_pedido->agregarPedido($_SESSION["id_usuario"], $id_p, $contador);
             }
             break;

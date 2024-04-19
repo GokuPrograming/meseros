@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/pedidoTomado.css">
     <link rel="stylesheet" href="../assets/css/nvar.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -54,25 +55,41 @@
             }
         });
     }
-
     function actualizarEstado(id_pedido) {
-        let estadoSeleccionado = document.getElementById("estadoPedido").value;
-        console.log(estadoSeleccionado, id_pedido);
-        $.ajax({
-            url: '../controller/mesero/ctrlMesero.php',
-            type: 'GET',
-            data: {
-                opc: 4,
-                id_estado: estadoSeleccionado,
-                id_pedido: id_pedido
-            },
-            success: function(response) {
-                $('#data').html(response);
-                mostrarPedidoTomado();
-            },
-            error: function() {
-                console.log("algo salio mal al moemnto de trer el pedido ")
-            }
-        });
-    }
+    let estadoSeleccionado = document.getElementById("estadoPedido").value;
+    console.log(estadoSeleccionado, id_pedido);
+
+    // Mostrar SweetAlert de "Actualizando..."
+    Swal.fire({
+        title: 'Actualizando...',
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    $.ajax({
+        url: '../controller/mesero/ctrlMesero.php',
+        type: 'GET',
+        data: {
+            opc: 4,
+            id_estado: estadoSeleccionado,
+            id_pedido: id_pedido
+        },
+        success: function(response) {
+            // Cerrar SweetAlert de "Actualizando..."
+            Swal.close();
+
+            $('#data').html(response);
+            mostrarPedidoTomado();
+        },
+        error: function() {
+            // Cerrar SweetAlert de "Actualizando..." en caso de error
+            Swal.close();
+
+            console.log("algo salió mal al momento de traer el pedido");
+        }
+    });
+}
+
 </script>
