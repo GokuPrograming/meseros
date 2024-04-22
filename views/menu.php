@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,205 +7,21 @@
     <link rel="stylesheet" href="../assets/css/menu.css">
     <link rel="stylesheet" href="../assets/css/pedidos.css">
     <link rel="stylesheet" href="../assets/css/nvar.css">
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-
     <!-- <link rel="stylesheet" href="nvar.css"> -->
 </head>
-
 <body>
     <a href="./canasta.php">canasta</a>
-
-    <!-- Navbar -->
-    <!-- <nav class="navbar">
-    <div class="navcontainer">
-        <a class="navbar-brand" href="#">Restaurant</a>
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Menu</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-            </li>
-        </ul>
-    </div>
-</nav> -->
-
-
-
-
-    <script>
-        $(document).ready(function() {
-            //    barra();
-            mostrar_Nvar();
-            mostrar_subNvar();
-            mostrarProductos();
-            mostrarParaMeseros();
-            // carritoContador();
-        });
-
-        function mostrarProductos() {
-            $.ajax({
-                url: '../controller/user/ctrlUser.php?opc=1',
-                type: 'GET',
-                success: function(response) {
-                    $('#productos').html(response);
-                },
-                error: function() {
-                    // Maneja errores si la solicitud AJAX falla
-                    //  redirigirAVentana("login.html");
-                }
-            });
-            // carritoContador();
-        }
-
-        function mostrarParaMeseros() {
-            $.ajax({
-                url: '../controller/mesero/ctrlMesero.php?opc=1',
-                type: 'GET',
-                success: function(response) {
-                    $('#meseros').html(response);
-                },
-                error: function() {
-                    // Maneja errores si la solicitud AJAX falla
-                    //  redirigirAVentana("login.html");
-                }
-            });
-            // carritoContador();
-        }
-
-        function mostrar_Nvar() {
-            $.ajax({
-                url: '../controller/user/nvarController.php?opc=1',
-                type: 'GET',
-                success: function(response) {
-                    $('#Nvar').html(response);
-                },
-                error: function() {
-                    // Maneja errores si la solicitud AJAX falla
-                    //  redirigirAVentana("login.html");
-                }
-            });
-            // carritoContador();
-        }
-
-        function mostrar_subNvar() {
-            $.ajax({
-                url: '../controller/user/subNvar_controller.php?opc=1',
-                type: 'GET',
-                success: function(response) {
-                    $('#subNvar').html(response);
-                },
-                error: function() {
-                    // Maneja errores si la solicitud AJAX falla
-                    //  redirigirAVentana("login.html");
-                }
-            });
-            // carritoContador();
-        }
-
-        function mostrarProductos_comida() {
-            $.ajax({
-                url: '../controller/user/ctrlUser.php?opc=2',
-                type: 'GET',
-                success: function(response) {
-                    $('#productos').html(response);
-                },
-                error: function() {
-                    // Maneja errores si la solicitud AJAX falla
-                    //  redirigirAVentana("login.html");
-                }
-            });
-            // carritoContador();
-        }
-
-        function mostrarProductos_bebida() {
-            $.ajax({
-                url: '../controller/user/ctrlUser.php?opc=3',
-                type: 'GET',
-                success: function(response) {
-                    $('#productos').html(response);
-                },
-                error: function() {
-                    // Maneja errores si la solicitud AJAX falla
-                    //  redirigirAVentana("login.html");
-                }
-            });
-            // carritoContador();
-        }
-
-        function mostrarProductos_desechable() {
-            $.ajax({
-                url: '../controller/user/ctrlUser.php?opc=4',
-                type: 'GET',
-                success: function(response) {
-                    $('#productos').html(response);
-                },
-                error: function() {
-                    // Maneja errores si la solicitud AJAX falla
-                    //  redirigirAVentana("login.html");
-                }
-            });
-            // carritoContador();
-        }
-
-
-        function tomarOrden(id_pedido) {
-            // Mostrar SweetAlert de cargando
-            Swal.fire({
-                title: 'Cargando...',
-                allowOutsideClick: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-
-            $.ajax({
-                url: `../controller/mesero/ctrlMesero.php?opc=2&id_pedido=${id_pedido}`,
-                type: 'GET',
-                success: function(response) {
-                    // Cerrar SweetAlert de cargando
-                    Swal.close();
-
-                    $('#mostrar').html(response);
-                    mostrarNotificacion('¡Gracias por tomar el pedido!', 'success');
-                    mostrarParaMeseros();
-
-                    // Espera 2 segundos antes de redireccionar
-                    setTimeout(function() {
-                        window.location.href = "./preparar_pedido.php";
-                    }, 2000); // 2000 milisegundos = 2 segundos
-                },
-                error: function() {
-                    // Cerrar SweetAlert de cargando
-                    Swal.close();
-
-                    // Maneja errores si la solicitud AJAX falla
-                    $('#mostrar').html('Error al cargar la barra de navegación');
-                }
-            });
-        }
-    </script>
     <div id="Nvar"></div>
     <div id="subNvar"></div>
     <div id="productos"></div>
     <div id="meseros"></div>
     <div id="mostrar"></div>
 </body>
-
 </html>
-
 <script>
     // Variable para almacenar el contador
     let contador = 0;
@@ -290,4 +105,154 @@
     //         }
     //     });
     // }
+</script>
+<script>
+    $(document).ready(function() {
+        //    barra();
+        mostrar_Nvar();
+        mostrar_subNvar();
+        mostrarProductos();
+        mostrarParaMeseros();
+        // carritoContador();
+    });
+
+    function mostrarProductos() {
+        $.ajax({
+            url: '../controller/user/ctrlUser.php?opc=1',
+            type: 'GET',
+            success: function(response) {
+                $('#productos').html(response);
+            },
+            error: function() {
+              
+            }
+        });
+    }
+
+    function mostrarParaMeseros() {
+        $.ajax({
+            url: '../controller/mesero/ctrlMesero.php?opc=1',
+            type: 'GET',
+            success: function(response) {
+                $('#meseros').html(response);
+            },
+            error: function() {
+                // Maneja errores si la solicitud AJAX falla
+                //  redirigirAVentana("login.html");
+            }
+        });
+        // carritoContador();
+    }
+
+    function mostrar_Nvar() {
+        $.ajax({
+            url: '../controller/user/nvarController.php?opc=1',
+            type: 'GET',
+            success: function(response) {
+                $('#Nvar').html(response);
+            },
+            error: function() {
+                // Maneja errores si la solicitud AJAX falla
+                //  redirigirAVentana("login.html");
+            }
+        });
+        // carritoContador();
+    }
+
+    function mostrar_subNvar() {
+        $.ajax({
+            url: '../controller/user/subNvar_controller.php?opc=1',
+            type: 'GET',
+            success: function(response) {
+                $('#subNvar').html(response);
+            },
+            error: function() {
+                // Maneja errores si la solicitud AJAX falla
+                //  redirigirAVentana("login.html");
+            }
+        });
+        // carritoContador();
+    }
+
+    function mostrarProductos_comida() {
+        $.ajax({
+            url: '../controller/user/ctrlUser.php?opc=2',
+            type: 'GET',
+            success: function(response) {
+                $('#productos').html(response);
+            },
+            error: function() {
+                // Maneja errores si la solicitud AJAX falla
+                //  redirigirAVentana("login.html");
+            }
+        });
+        // carritoContador();
+    }
+
+    function mostrarProductos_bebida() {
+        $.ajax({
+            url: '../controller/user/ctrlUser.php?opc=3',
+            type: 'GET',
+            success: function(response) {
+                $('#productos').html(response);
+            },
+            error: function() {
+                // Maneja errores si la solicitud AJAX falla
+                //  redirigirAVentana("login.html");
+            }
+        });
+        // carritoContador();
+    }
+
+    function mostrarProductos_desechable() {
+        $.ajax({
+            url: '../controller/user/ctrlUser.php?opc=4',
+            type: 'GET',
+            success: function(response) {
+                $('#productos').html(response);
+            },
+            error: function() {
+                // Maneja errores si la solicitud AJAX falla
+                //  redirigirAVentana("login.html");
+            }
+        });
+        // carritoContador();
+    }
+
+
+    function tomarOrden(id_pedido) {
+        // Mostrar SweetAlert de cargando
+        Swal.fire({
+            title: 'Cargando...',
+            allowOutsideClick: false,
+            onBeforeOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        $.ajax({
+            url: `../controller/mesero/ctrlMesero.php?opc=2&id_pedido=${id_pedido}`,
+            type: 'GET',
+            success: function(response) {
+                // Cerrar SweetAlert de cargando
+                Swal.close();
+
+                $('#mostrar').html(response);
+                mostrarNotificacion('¡Gracias por tomar el pedido!', 'success');
+                mostrarParaMeseros();
+
+                // Espera 2 segundos antes de redireccionar
+                setTimeout(function() {
+                    window.location.href = "./preparar_pedido.php";
+                }, 2000); // 2000 milisegundos = 2 segundos
+            },
+            error: function() {
+                // Cerrar SweetAlert de cargando
+                Swal.close();
+
+                // Maneja errores si la solicitud AJAX falla
+                $('#mostrar').html('Error al cargar la barra de navegación');
+            }
+        });
+    }
 </script>

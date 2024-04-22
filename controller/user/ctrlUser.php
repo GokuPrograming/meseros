@@ -6,6 +6,7 @@ require_once '../../model/eliminar/eliminarCanasta_model.php';
 $producto = new Producto();
 $agregar_a_pedido = new AgregarPedido();
 $elimar_de_canasta = new EliminarCanasta();
+
 if (isset($_GET['opc'])) {
     $opc = $_GET['opc'];
     switch ($opc) {
@@ -15,8 +16,8 @@ if (isset($_GET['opc'])) {
                     if ($_SESSION["id_rol"] == 3) {
                         $datosProducto = $producto->mostrarProductos();
                         if (!empty($datosProducto)) {
+                            // <div>sesion de rol:' . $_SESSION["id_rol"] . ' </div>
                             echo '
-                        <div>sesion de rol:' . $_SESSION["id_rol"] . ' </div>
                         <section id="our_menu" class="pt-5 pb-5">
                             <div class="container">
                                 <div class="row justify-content-center">
@@ -25,8 +26,7 @@ if (isset($_GET['opc'])) {
                                             <div class="tab-pane fade show active" id="breakfast" role="tabpanel" aria-labelledby="breakfast-tab">
                                                 <div class="row">';
                             foreach ($datosProducto as $info) {
-                                echo '
-                                                    <div class="col-md-6 col-lg-4">
+                                echo ' <div class="col-md-6 col-lg-4">
                                                         <div class="single_menu">
                                                             <img src="../assets/img/productos/' . $info['imagen'] . '" alt="fried rice" class="img-fluid">
                                                             <div class="menu_content">
