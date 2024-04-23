@@ -16,13 +16,17 @@ if (isset($_GET['opc'])) {
                                 <a class="nav-link" href="./menu.php">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./AboutUs.html">About</a>
+                                <a class="nav-link" href="./AboutUs.php">About</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./canasta.php">Canasta</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="usuario_pedido..php">Historial de Pedidos</a>
+                            </li>
+                            <li>
+                            <a class="nav-link" href="../Controller/user/ctrlUser.php?opc=14">
+                            CERRAR SESION
                             </li>
                         </ul>
                     </div>
@@ -42,15 +46,16 @@ if (isset($_GET['opc'])) {
                             <li class="nav-item active">
                                 <a class="nav-link" href="./menu.php">Lista de pedidos</a>
                             </li>
+
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link" href="./preparar_pedido.php">Mis Encargos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./preparar_pedido.php">PrepararPedido</a>
+                            <li>
+                            <a class="nav-link" href="../Controller/user/ctrlUser.php?opc=14">
+                            CERRAR SESION
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
-                            </li>
+                           
                         </ul>
                     </div>
                 </nav>

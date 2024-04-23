@@ -29,6 +29,9 @@ if (isset($_GET['opc'])) {
                                         <li class="nav-item">
                                             <a class="nav-link" id="dinner-tab" data-toggle="tab" href="#"  onclick="mostrarProductos_desechable()" role="tab">Desechables</a>
                                         </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link" id="dinner-tab" data-toggle="tab" href="#"  onclick="asistencia()" role="tab">Llamar Mesero</a>
+                                    </li>
                                     </ul>
                                 </div>';
                 }

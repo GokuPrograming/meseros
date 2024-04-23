@@ -3,9 +3,12 @@ require_once '../../model/conexion_model.php';
 require_once '../../model/mostrar/mostrar_productos_model.php';
 require_once '../../model/agregar/agregarPedido_model.php';
 require_once '../../model/eliminar/eliminarCanasta_model.php';
+require_once '../../model/cerrarSesion.php';
 $producto = new Producto();
 $agregar_a_pedido = new AgregarPedido();
 $elimar_de_canasta = new EliminarCanasta();
+$cerrarSesion = new cerrarSesion;
+
 
 if (isset($_GET['opc'])) {
     $opc = $_GET['opc'];
@@ -494,6 +497,10 @@ if (isset($_GET['opc'])) {
                                     </div>';
             }
             break;
+            case "14": // cerrar la sesion 
+                $cerrarSesion->logoutUserById($_SESSION['id_usuario']);
+                header('Location: ../../views/login3.php');
+                break;
     }
 } else {
     echo 'no llego ningun opc';

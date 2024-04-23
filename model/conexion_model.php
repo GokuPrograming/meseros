@@ -1,12 +1,13 @@
  <?php
-
+    // Start output buffering
+    ob_start();
+    // Start the session
     session_start();
-
     class Conexion
     {
-        private $DBServer = 'meseros.cpsio64641e7.us-east-2.rds.amazonaws.com'; // Cambia esto al nombre o dirección IP de tu servidor de base de datos
-        private $DBUser = 'admin'; // Cambia esto a tu nombre de usuario de la base de datos
-        private $DBPass = 'Miguel123'; // Cambia esto a tu contraseña de la base de datos
+        private $DBServer ='localhost'; // Cambia esto al nombre o dirección IP de tu servidor de base de datos
+        private $DBUser = 'usuario'; // Cambia esto a tu nombre de usuario de la base de datos
+        private $DBPass = '123'; // Cambia esto a tu contraseña de la base de datos
         private $DBName = 'meseros'; // Cambia esto a tu nombre de base de datos
 
         public function __construct()
@@ -24,7 +25,8 @@
             }
         }
     }
-
+    // Flush the output buffer
+    ob_end_flush();
 
 
 

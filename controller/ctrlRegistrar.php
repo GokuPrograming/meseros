@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST["nombre"];
     $correo = $_POST["correo"];
     $password = $_POST["password"];
-    echo 'datos que se reciben' . $nombre . $correo . $password;
+
     //Realiza las operaciones necesarias con los datos, por ejemplo, insertar en la base de datos
     $user = new crearUsuario();
 
@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Envía la respuesta como JSON
         header('Content-Type: application/json');
         echo json_encode($response);
-        // header("Location: Admin/ctrlAdmin.php");
     }
 } else {
     $response = array(
@@ -43,3 +42,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Content-Type: application/json');
     echo json_encode($response);
 }
+?>

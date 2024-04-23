@@ -1,3 +1,16 @@
+<?php
+session_start();
+if (isset($_SESSION['id_usuario'])) {
+    //header('location: view/main.php');
+    // You may want to remove this echo statement unless it's for debugging purposes
+    // echo "sesion" . $_SESSION['id_usuario'];
+} else {
+    //echo "Sesión no iniciada";
+    header('location: login3.php');
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,8 +71,8 @@
                                 </span>
                             </div>
                             <div class="person-info">
-                                <h3 class="full-name">John Doe</h3>
-                                <span class="speciality">Web Developer</span>
+                                <h3 class="full-name">Jesus Arturo Guevara Hernández </h3>
+                                <span class="speciality">Rapido y Servidor</span>
                             </div>
                         </div>
                     </div>
@@ -100,8 +113,8 @@
                                 </span>
                             </div>
                             <div class="person-info">
-                                <h3 class="full-name">Robert Smith</h3>
-                                <span class="speciality">WordPress Developer</span>
+                                <h3 class="full-name">Samantha Vázquez Morales </h3>
+                                <span class="speciality">La Señora del mantel</span>
                             </div>
                         </div>
                     </div>
@@ -142,8 +155,8 @@
                                 </span>
                             </div>
                             <div class="person-info">
-                                <h3 class="full-name">John Smith</h3>
-                                <span class="speciality">Javascript Developer</span>
+                                <h3 class="full-name">Miriam Gpe. Corrales Galvan </h3>
+                                <span class="speciality">La protectora del Mechudo</span>
                             </div>
                         </div>
                     </div>
