@@ -1,6 +1,5 @@
-
-
-<?php
+ <?php
+ /*
 session_start();
 
 class Conexion {
@@ -24,4 +23,33 @@ class Conexion {
 
 
 
+*/
+
+session_start();
+
+class Conexion {
+    private $DBServer;
+    private $DBUser;
+    private $DBPass;
+    private $DBName;
+
+    public function __construct() {
+        // Obtener las variables de entorno
+        $this->DBServer = getenv('DB_HOST');
+        $this->DBUser = getenv('DB_USER');
+        $this->DBPass = getenv('DB_PASS');
+        $this->DBName = getenv('DB_NAME');
+    }
+
+    public function conectar() {
+        try {
+            $conn = new PDO("mysql:host={$this->DBServer};dbname={$this->DBName}", $this->DBUser, $this->DBPass);
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $conn;
+        } catch (PDOException $e) {
+            die("Error de conexión: " . $e->getMessage());
+        }
+    }
+}
+?>
 
