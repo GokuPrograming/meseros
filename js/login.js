@@ -1,7 +1,7 @@
 jQuery(document).on('submit', '#forming', function (event) {
     event.preventDefault(); 
     jQuery.ajax({
-        url: 'controller/login_controller.php',
+        url: '../controller/login_controller.php',
         type: 'POST',
         dataType: 'json',
         data: jQuery(this).serialize(),
