@@ -28,6 +28,7 @@ if (isset($_SESSION['id_usuario'])) {
 <body>
     <a href="./canasta.php">canasta</a>
     <div id="Nvar"></div>
+    <br><br><br><br><br><br><br><br><br><br>
     <div id="subNvar"></div>
     <div id="productos"></div>
     <div id="meseros"></div>
@@ -136,7 +137,7 @@ if (isset($_SESSION['id_usuario'])) {
                 $('#productos').html(response);
             },
             error: function() {
-              
+               
             }
         });
     }

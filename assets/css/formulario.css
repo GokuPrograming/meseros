@@ -1,0 +1,72 @@
+.contact-form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea.form-control {
+    height: 150px;
+}
+
+.btn-primary {
+    background-color: #ff6f00;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e65100;
+}
+.titulo {
+    text-align: center;
+    margin-top: 20px; /* Espacio en la parte superior */
+}
+
+.titulo h1 {
+    font-size: 36px; /* Tamaño del título en pantallas grandes */
+}
+
+@media screen and (max-width: 768px) {
+    .titulo h1 {
+        font-size: 30px; /* Tamaño del título en pantallas medianas */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .titulo h1 {
+        font-size: 24px; /* Tamaño del título en pantallas pequeñas */
+    }
+}
+
+.contenido {
+    text-align: justify;
+    margin: 20px auto; /* Espaciado en los lados y centrado en pantallas grandes */
+    max-width: 800px; /* Ancho máximo del contenido */
+}
+
+.contenido p {
+    font-size: 16px; /* Tamaño del texto del párrafo */
+}
+
+@media screen and (max-width: 576px) {
+    .contenido {
+        padding: 0 10px; /* Espaciado en los lados en pantallas pequeñas */
+    }
+}

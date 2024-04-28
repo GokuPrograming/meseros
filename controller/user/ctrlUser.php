@@ -4,10 +4,12 @@ require_once '../../model/mostrar/mostrar_productos_model.php';
 require_once '../../model/agregar/agregarPedido_model.php';
 require_once '../../model/eliminar/eliminarCanasta_model.php';
 require_once '../../model/cerrarSesion.php';
+require_once '../../model/actualizar/actualizar.php';
 $producto = new Producto();
 $agregar_a_pedido = new AgregarPedido();
 $elimar_de_canasta = new EliminarCanasta();
 $cerrarSesion = new cerrarSesion;
+$actualizar= new actualizar;
 
 
 if (isset($_GET['opc'])) {
@@ -60,7 +62,7 @@ if (isset($_GET['opc'])) {
                         </section>';
                         }
                     } else {
-                        echo "el rol es " . $_SESSION["id_rol"];
+                        // echo "el rol es " . $_SESSION["id_rol"];
                     }
                 }
             }
@@ -208,7 +210,7 @@ if (isset($_GET['opc'])) {
                 $agregar_a_pedido->agregarCanasta($_SESSION["id_usuario"], $id_p, $contador);
             }
             break;
-            case '6': {
+        case '6': {
                 if (isset($_SESSION["id_usuario"])) {
                     $datosProducto = $producto->mostrarProductos_canasta($_SESSION["id_usuario"]);
                     if (!empty($datosProducto)) {
@@ -260,7 +262,7 @@ if (isset($_GET['opc'])) {
                     };
                 }
             }
-            
+
             break;
         case '7':
             $id_p = $_GET['id_producto'];
@@ -497,10 +499,20 @@ if (isset($_GET['opc'])) {
                                     </div>';
             }
             break;
-            case "14": // cerrar la sesion 
-                $cerrarSesion->logoutUserById($_SESSION['id_usuario']);
-                header('Location: ../../views/login3.php');
-                break;
+        case "14": // cerrar la sesion 
+            $cerrarSesion->logoutUserById($_SESSION['id_usuario']);
+            header('Location: ../../views/login3.php');
+            break;
+        case "15": //mandar correo de solicitud
+            if (isset($_SESSION["id_usuario"])) {
+                $asunto = $_POST['asunto'];
+                $comentario = $_POST['comentario'];
+                echo "comentario recibido: " . $comentario, "asunto:", $asunto;
+                $actualizar->notificarAdmin($comentario,$asunto);
+            } else {
+                echo 'no llegaron',$_SESSION["id_usuario"];
+            }
+            break;
     }
 } else {
     echo 'no llego ningun opc';

@@ -10,7 +10,10 @@ if (isset($_GET['opc'])) {
                     echo '
                     <nav class="navbar">
                     <div class="navcontainer">
-                        <a class="navbar-brand" href="#">Restaurant</a>
+                    <a href="./menu.php" class="navbar-brand">
+                    <img src="../assets/img/integrantes/logo.jpeg" alt="Logo" class="navbar-logo">
+                    
+                </a>
                         <ul class="navbar-nav">
                             <li class="nav-item active">
                                 <a class="nav-link" href="./menu.php">Home</a>
@@ -24,8 +27,11 @@ if (isset($_GET['opc'])) {
                             <li class="nav-item">
                                 <a class="nav-link" href="usuario_pedido..php">Historial de Pedidos</a>
                             </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="./formulario.php">Contactanos</a>
+                        </li>
                             <li>
-                            <a class="nav-link" href="../Controller/user/ctrlUser.php?opc=14">
+                            <a class="nav-link" href="../controller/user/ctrlUser.php?opc=14">
                             CERRAR SESION
                             </li>
                         </ul>
@@ -41,7 +47,10 @@ if (isset($_GET['opc'])) {
                     echo '
                     <nav class="navbar">
                     <div class="navcontainer">
-                        <a class="navbar-brand" href="#">Restaurant</a>
+                    <a href="./menu.php" class="navbar-brand">
+                    <img src="../assets/img/integrantes/logo.jpeg" alt="Logo" class="navbar-logo">
+                    
+                </a>
                         <ul class="navbar-nav">
                             <li class="nav-item active">
                                 <a class="nav-link" href="./menu.php">Lista de pedidos</a>
@@ -52,10 +61,9 @@ if (isset($_GET['opc'])) {
                             </li>
                             <li class="nav-item">
                             <li>
-                            <a class="nav-link" href="../Controller/user/ctrlUser.php?opc=14">
+                            <a class="nav-link" href="../controller/user/ctrlUser.php?opc=14">
                             CERRAR SESION
                             </li>
-                           
                         </ul>
                     </div>
                 </nav>
@@ -65,7 +73,6 @@ if (isset($_GET['opc'])) {
                 <br><br>
                 <br><br>
                 <br><br>
-                
                 ';
                 }
         }

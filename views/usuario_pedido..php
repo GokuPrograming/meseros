@@ -309,8 +309,10 @@ if (isset($_SESSION['id_usuario'])) {
 </head>
 
 <body>
-    <div id="subNvar"></div>
+  
     <div id="Nvar"></div>
+    <br><br><br><br>
+    <div id="subNvar"></div>
     <div id="pedidos"></div>
 </body>
 

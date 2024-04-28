@@ -142,7 +142,7 @@ if (isset($_GET['opc'])) {
             $id_pedido = $_GET['id_pedido'];
             $id_estado = $_GET['id_estado'];
             // $id_p = intval($id_p);
-            echo "El valor del pedido es=" . $id_pedido . "que esta en estado:" . $id_estado;
+          //  echo "El valor del pedido es=" . $id_pedido . "que esta en estado:" . $id_estado;
             $actualizar->actualizar_estado_pedido($id_estado, $id_pedido);
     }
 }

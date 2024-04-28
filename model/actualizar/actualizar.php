@@ -21,11 +21,11 @@ class actualizar
         $stmt->bindParam(':id_pedido', $id_pedido, PDO::PARAM_INT);
 
         if ($id_estado == 2) {
-            $ticket = 'Nuestro mesero le notifica que el pedido numero:'.$id_pedido.' esta en preparacion 👍';
+            $ticket = 'Nuestro mesero le notifica que el pedido numero:' . $id_pedido . ' esta en preparacion 👍';
             $correo->sendMailTicket($_SESSION['correo'], $ticket);
         }
         if ($id_estado == 3) {
-            $ticket = 'Nuestro mesero le notifica que el pedido numero:'.$id_pedido.' esta camino, y pronto llegara a su mesa 😃 ';
+            $ticket = 'Nuestro mesero le notifica que el pedido numero:' . $id_pedido . ' esta camino, y pronto llegara a su mesa 😃 ';
             $correo->sendMailTicket($_SESSION['correo'], $ticket);
         }
 
@@ -33,7 +33,7 @@ class actualizar
         if ($stmt->execute()) {
             if ($id_estado == 4) {
                 $this->validarEstadoPedido($id_pedido);
-                $ticket = 'Nuestro mesero le notifica que el pedido numero:'.$id_pedido.' se le fue entregado😃, si no fue asi,puede hablar con el Gerente 🐱‍💻';
+                $ticket = 'Nuestro mesero le notifica que el pedido numero:' . $id_pedido . ' se le fue entregado😃, si no fue asi,puede hablar con el Gerente 🐱‍💻';
                 $correo->sendMailTicket($_SESSION['correo'], $ticket);
             } else {
                 echo "Actualizado correctamente";
@@ -53,5 +53,13 @@ class actualizar
         } else {
             echo "Error al actualizar";
         }
+    }
+    public function notificarAdmin($ticket, $asunto)
+    {
+        require_once '../../model/enviarCorreo.php';
+        $correo = new MailerService();
+        // $correoAdmin="corrales.miriam.p1@gmail.com";
+        $correoAdmin = 'verafrancomiguel1d@gmail.com';
+        $correo->sendMailToAdmin($correoAdmin, $ticket, $asunto);
     }
 }

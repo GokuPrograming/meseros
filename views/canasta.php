@@ -32,6 +32,7 @@ if (isset($_SESSION['id_usuario'])) {
     <div id="mostrar"></div>
     <br><br><br><br><br><br><br><br><br><br>
     <div class="page_title">
+        <br><br><br>
         <h1>Canasta</h1>
     </div>
     <div class="table-responsive">
